@@ -25,5 +25,15 @@ app.get('/words', async (req, res) => {
         res.status(500).send({message: error.message})
     }
 })
+app.get('/words/:id', async (req, res) => {
+    try {
+        const {id} = req.params
+        const word = await Word.findById(id)
+        return res.status(200).json(word)
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).send({message: error.message})
+    }
+})
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
