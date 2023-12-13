@@ -20,7 +20,6 @@ app.use(
     })
 )
 
-app.get('/', (req, res) => res.send('API running'))
 app.use('/words', wordRoutes)
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
