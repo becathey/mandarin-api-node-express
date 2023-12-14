@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import compression from 'compression'
 import connectDB from './config/db.js'
 import wordRoutes from './routes/wordRoutes.js'
 
@@ -20,6 +21,7 @@ app.use(
     })
 )
 
+app.use(compression())
 app.use('/words', wordRoutes)
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
