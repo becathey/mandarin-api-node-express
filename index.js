@@ -14,6 +14,8 @@ connectDB()
 
 const app = express()
 
+app.set('trust proxy', 1)
+
 const limiter = rateLimit({
     windowMs: 1 * 60 * 1000,
     max: 20,
@@ -32,6 +34,8 @@ app.use(
 )
 
 app.use(compression())
+
 app.use('/words', wordRoutes)
+app.get('/ip', (req, res) => res.send(req.ip))
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
