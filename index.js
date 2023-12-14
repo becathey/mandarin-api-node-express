@@ -25,7 +25,7 @@ app.use(helmet())
 app.use(express.json())
 app.use(
     cors({
-        origin: 'https://mandarin-english.netlify.app',
+        origin: 'https://mandarin-english.netlify.app/words',
         methods: ['GET'],
         allowedHeaders: ['Content-Type'],
     })
