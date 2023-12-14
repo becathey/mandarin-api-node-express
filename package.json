@@ -1,6 +1,9 @@
 {
   "name": "231212_mandarin-api",
   "version": "1.0.0",
+  "engines": {
+    "node": "20.6.1"
+  },
   "description": "",
   "type": "module",
   "main": "index.js",
