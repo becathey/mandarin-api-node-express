@@ -27,7 +27,7 @@ app.use(helmet())
 app.use(express.json())
 app.use(
     cors({
-        origin: 'https://mandarin-english.netlify.app/words',
+        origin: 'https://mandarin-english.netlify.app',
         methods: ['GET'],
         allowedHeaders: ['Content-Type'],
     })
@@ -36,6 +36,5 @@ app.use(
 app.use(compression())
 
 app.use('/words', wordRoutes)
-app.get('/ip', (req, res) => res.send(req.ip))
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
