@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import compression from 'compression'
 import helmet from 'helmet'
+import rateLimit from 'express-rate-limit'
 import connectDB from './config/db.js'
 import wordRoutes from './routes/wordRoutes.js'
 
@@ -12,6 +13,12 @@ const port = process.env.PORT || 5000
 connectDB()
 
 const app = express()
+
+const limiter = rateLimit({
+    windowMs: 1 * 60 * 1000,
+    max: 20,
+})
+app.use(limiter)
 
 app.use(helmet())
 
